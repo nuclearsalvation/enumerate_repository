@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, PlainTextResponse
 
 app = FastAPI()
 
@@ -7,3 +7,8 @@ app = FastAPI()
 def read_root():
     html_content = '<h2>enumerate</h2>'
     return HTMLResponse(content=html_content)
+
+@app.get('/text', response_class=PlainTextResponse)
+def root():
+    data = 'enumerate'
+    return PlainTextResponse(content=data)
