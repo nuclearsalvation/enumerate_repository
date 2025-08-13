@@ -12,3 +12,7 @@ def read_root():
 def root():
     data = 'enumerate'
     return PlainTextResponse(content=data)
+
+@app.get('/text/{msg}')
+def text_id(msg):
+    return{"message":msg}
