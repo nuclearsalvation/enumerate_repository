@@ -16,3 +16,7 @@ def root():
 @app.get('/text/{msg}')
 def text_id(msg):
     return{"message":msg}
+
+@app.get('/query')
+def get_model(name, num):
+    return{'name':name,'num':num}
