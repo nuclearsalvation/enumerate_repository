@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from fastapi.responses import HTMLResponse, PlainTextResponse
+from fastapi.responses import HTMLResponse, PlainTextResponse, RedirectResponse
 
 app = FastAPI()
 
@@ -20,3 +20,7 @@ def text_id(msg):
 @app.get('/query')
 def get_model(name, num):
     return{'name':name,'num':num}
+
+@app.get('/rdrct')
+def redirect():
+    return RedirectResponse('/text')
